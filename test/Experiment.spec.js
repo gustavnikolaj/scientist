@@ -15,13 +15,9 @@ describe("Experiment", () => {
     const newImplementation = () => "bar";
     const controlImplementation = () => {
       const startTime = Date.now();
-      let foo = "foo";
+      while (Date.now() - startTime < 2) {}
 
-      while (Date.now() - startTime < 2) {
-        foo = "foo";
-      }
-
-      return foo;
+      return "foo";
     };
 
     const reports = [];
@@ -38,7 +34,7 @@ describe("Experiment", () => {
         control: {
           return: "foo",
           error: undefined,
-          ms: expect.it("to be a number").and("to be greater than", 1)
+          ms: expect.it("to be greater than or equal to", 2)
         },
         experiment: {
           return: "bar",
