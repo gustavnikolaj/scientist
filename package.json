@@ -9,6 +9,9 @@
     "test": "mocha"
   },
   "keywords": [],
+  "files": [
+    "lib"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
